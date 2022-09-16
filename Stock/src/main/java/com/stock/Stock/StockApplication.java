@@ -13,29 +13,43 @@ public class StockApplication {
 	public static void main(String[] args) {
 		//SpringApplication.run(StockApplication.class, args);
 
-		Map<String, Integer> Nourriture = new HashMap();
-		Prducts prducts = new Prducts(2, 2, 2, 7,
-				6, 6);
+		//int client;
+		Map<String, Integer> Nourriture_client_x = new HashMap();
+		Nourriture_client_x.put("moufid", 3);
+		Nourriture_client_x.put("kafila", 1);
+		Nourriture_client_x.put("mimona", 1);
 
-		Nourriture.put("danon" , prducts.getSock_danon_client());
-		Nourriture.put("farin" , prducts.getSock_farin_client());
-		Nourriture.put("Thé" , prducts.getSock_The_client());
+		Prducts prducts_danoun = new Prducts("moufid", "danoun", 10, 1);
+		Prducts prducts_the = new Prducts("kafila", "the", 10, 5);
+		Prducts prducts_farin = new Prducts("mimona", "farin", 10, 100);
 
-		int danonstock = Nourriture.get("danon") - prducts.getValue_danon_client();
-		int farinstock = Nourriture.get("farin") - prducts.getValue_farin_client();
-		int Thestock = Nourriture.get("Thé") - prducts.getValue_The_client();
+		int danonstock = prducts_danoun.getStock() - Nourriture_client_x.get("moufid") ;
+		int thestock = prducts_the.getStock() - Nourriture_client_x.get("kafila");
+		int farinstock = prducts_farin.getStock() - Nourriture_client_x.get("mimona");
 
-		Serializable valueclientdanon = danonstock > 0 ?  "Le client a demandé danon de " + prducts.getValue_danon_client() : "Le client a demandé plus que ce qui est disponible dans Stock danon";
-		Serializable valueclientfarins = farinstock > 0 ?  "Le client a demandé farins de " + prducts.getValue_farin_client()  : "Le client a demandé plus que ce qui est disponible dans Stock farins";
-		Serializable valueclientThe = Thestock > 0 ?  "Le client a demandé The de " + prducts.getValue_The_client()  : "Le client a demandé plus que ce qui est disponible dans Stock The";
+		Serializable valueclientdanon = danonstock > 0 ?  "": "Le client a demandé plus que ce qui est disponible dans Stock danon";
+		Serializable valueclientthe = thestock > 0 ?    "" : "Le client a demandé plus que ce qui est disponible dans Stock danon";
+		Serializable valueclientfarin = farinstock > 0 ?  "" : "Le client a demandé plus que ce qui est disponible dans Stock danon";
 
-		System.out.println( valueclientdanon);
-		System.out.println( valueclientfarins);
-		System.out.println( valueclientThe);
+		// cote stock
+		System.out.println(valueclientdanon);
+		System.out.println(valueclientthe);
+		System.out.println(valueclientfarin);
+
+		System.out.println("Cote stock :");
+		System.out.println("Reste dans Stock moufid :" + danonstock);
+		System.out.println("Reste dans Stock  kafila :" + thestock);
+		System.out.println("Reste dans Stock  mimona :" + farinstock);
 		System.out.println();
-		System.out.println("Stock danon :" + danonstock);
-		System.out.println("Stock farin :" + farinstock);
-		System.out.println("Stock Thé :" + Thestock);
+		//cote client
+		System.out.println("Cote client :");
+		System.out.println("client danon :" + Nourriture_client_x.get("moufid") * prducts_danoun.getPrix());
+		System.out.println("client kafila :" + Nourriture_client_x.get("kafila") * prducts_the.getPrix());
+		System.out.println("client mimona :" + Nourriture_client_x.get("mimona") * prducts_farin.getPrix());
+		double total = Nourriture_client_x.get("moufid") * prducts_danoun.getPrix() +
+				Nourriture_client_x.get("kafila") * prducts_the.getPrix() +
+				Nourriture_client_x.get("mimona") * prducts_farin.getPrix();
+		System.out.println("Total :" + total);
 
 	}
 

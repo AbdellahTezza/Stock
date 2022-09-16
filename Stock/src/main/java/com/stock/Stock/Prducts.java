@@ -5,83 +5,58 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Prducts {
-    private int value_danon_client,
-            value_farin_client,
-            value_The_client,
-            sock_danon_client,
-            sock_farin_client,
-            sock_The_client
+
+    private String name, marque;
+    private int stock;
+    private double prix;
+
             ;
-    public Prducts(int value_danon_client, int value_farin_client, int value_The_client,
-                   int sock_danon_client, int sock_farin_client, int sock_The_client
-                   ) {
-        this.value_danon_client = value_danon_client;
-        this.value_farin_client = value_farin_client;
-        this.value_The_client = value_The_client;
-        this.sock_danon_client = sock_danon_client;
-        this.sock_farin_client = sock_farin_client;
-        this.sock_The_client = sock_The_client;
-
+    public Prducts( String name, String marque, int stock, double prix) {
+        this.name = name;
+        this.marque = marque;
+        this.stock = stock;
+        this.prix = prix;
     }
 
-    public int getValue_danon_client() {
-        return value_danon_client;
+    public String getName() {
+        return name;
     }
 
-    public void setValue_danon_client(int value_danon_client) {
-        this.value_danon_client = value_danon_client;
+    public void setName(String name) {
+        this.name = name;
     }
 
-
-    public int getValue_farin_client() {
-        return value_farin_client;
+    public String getMarque() {
+        return marque;
     }
 
-    public void setValue_farin_client(int value_farin_client) {
-        this.value_farin_client = value_farin_client;
+    public void setMarque(String marque) {
+        this.marque = marque;
     }
 
-    public int getValue_The_client() {
-        return value_The_client;
+    public int getStock() {
+        return stock;
     }
 
-    public void setValue_The_client(int value_The_client) {
-        this.value_The_client = value_The_client;
+    public void setStock(int stock) {
+        this.stock = stock;
     }
 
-    public int getSock_danon_client() {
-        return sock_danon_client;
+    public double getPrix() {
+        return prix;
     }
 
-    public void setSock_danon_client(int sock_danon_client) {
-        this.sock_danon_client = sock_danon_client;
-    }
-
-    public int getSock_farin_client() {
-        return sock_farin_client;
-    }
-
-    public void setSock_farin_client(int sock_farin_client) {
-        this.sock_farin_client = sock_farin_client;
-    }
-
-    public int getSock_The_client() {
-        return sock_The_client;
-    }
-
-    public void setSock_The_client(int sock_The_client) {
-        this.sock_The_client = sock_The_client;
+    public void setPrix(double prix) {
+        this.prix = prix;
     }
 
     @Override
     public String toString() {
         return "Prducts{" +
-                "value_danon_client=" + value_danon_client +
-                ", value_farin_client=" + value_farin_client +
-                ", value_The_client=" + value_The_client +
-                ", sock_danon_client=" + sock_danon_client +
-                ", sock_farin_client=" + sock_farin_client +
-                ", sock_The_client=" + sock_The_client +
+                "name='" + name + '\'' +
+                ", marque='" + marque + '\'' +
+                ", stock=" + stock +
+                ", prix=" + prix +
                 '}';
     }
 }
